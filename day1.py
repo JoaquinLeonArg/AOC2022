@@ -44,17 +44,19 @@ Find the Elf carrying the most Calories. How many total Calories is that Elf car
 
 from utils import parse_input, format_output
 
+
 def runA() -> int:
     # Find the elf with the most calories
-    elves = parse_input("day1.txt")
-    return max([sum(elf) for elf in elves])
+    elves = parse_input("day1.txt", transformation_functions=[int])
+    return max([sum([e[0] for e in elf]) for elf in elves])
+
 
 def runB() -> int:
     # Find the calories carried by the three elves with the most calories
-    elves = parse_input("day1.txt")
-    return sum(sorted([sum(elf) for elf in elves])[-3:])
+    elves = parse_input("day1.txt", transformation_functions=[int])
+    return sum(sorted([sum([e[0] for e in elf]) for elf in elves])[-3:])
+
 
 if __name__ == "__main__":
     format_output(day=1, part=1, result=runA())
     format_output(day=1, part=2, result=runB())
-    
