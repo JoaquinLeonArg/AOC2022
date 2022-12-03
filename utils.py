@@ -1,7 +1,7 @@
 from typing import Callable, List
 
 
-def parse_input(file_name: str, transformation_functions: List[Callable[[str], any]]) -> List[List[int]]:
+def parse_input(file_name: str, transformation_functions: List[Callable[[str], any]]) -> List[List[any]]:
     with open(file_name, "r") as file:
         return [[[transformation_functions[i](value) for i, value in enumerate(values.split(' '))]
                  for values in block.split("\n")]
