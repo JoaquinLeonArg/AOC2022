@@ -197,6 +197,7 @@ def find_viable_dirs(item: FSItem, min_size: int) -> List[FSItem]:
 
 
 def runA() -> int:
+    # Find the total size of directories with size less than 100000
     lines = parse_input('day7.txt', [str, str, str])
     root = parse_structure(lines)
     folders = find_max_100000(root)
@@ -204,10 +205,14 @@ def runA() -> int:
 
 
 def runB() -> int:
+    # Find the smallest directory that would free enough space if deleted
     lines = parse_input('day7.txt', [str, str, str])
     root = parse_structure(lines)
+
+    # Given by the problem
     max_size = 70000000
     min_required_size = 30000000
+    
     used_size = root.get_size()
     to_delete = min_required_size - (max_size - used_size)
     folders = find_viable_dirs(root, to_delete)
