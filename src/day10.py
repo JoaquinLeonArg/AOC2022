@@ -196,7 +196,7 @@ Find the signal strength during the 20th, 60th, 100th, 140th, 180th, and 220th c
 
 """
 
-from typing import List, Set
+from typing import List
 from utils import format_output, parse_input
 from abc import ABC, abstractmethod
 
